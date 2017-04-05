@@ -1,0 +1,41 @@
+data = []
+stats = []
+mlikes = 0
+from time import *
+#0 = dislike the company, 0 = not a teen, 0 = not female, 0 = no snapchat, 0 = republican
+def gather():
+    for y in range(0,100):
+        try:
+            gend = int(input("Male = 0, Female = 1\n"))
+            teen = int(input("Teenager(13-19) = 1, not a teenager = 0\n"))
+            snap = int(input("Snapchat = 1, no Snapchat = 0\n"))
+            part = int(input("Republican = 0, Democrat/Libertarian = 1\n"))
+            opin = int(input("Do you like Ford automanufacturers? Y = 1, N = 0"))
+            comp = [opin,teen,gend,snap,part]
+            print("Thank you for your input!")
+            sleep(2);
+            data.append(comp)
+        except:
+            print("Please try again!")
+data = [[0,0,0,0,0],[1,0,0,0,0],[1,1,1,1,0]]
+
+def subcateg(subcat,value):
+    li = 0
+    su = 0
+    for liked in data:
+        if liked[0] == 1:
+            li+=1
+        if liked[subcat] == value:
+            su+=1
+    return round((li/su),4)
+stats.append(subcateg(1))
+stats.append(subcateg(2))
+stats.append(subcateg(3))
+stats.append(subcateg(4))
+def gini(stat):
+    for vals in stats:
+        r = 0
+        r+=(vals)*(vals)
+    return 1-r
+print(gini(stats))
+
