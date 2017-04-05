@@ -3,6 +3,7 @@ stats = []
 mlikes = 0
 from time import *
 #0 = dislike the company, 0 = not a teen, 0 = not female, 0 = no snapchat, 0 = republican
+"""
 def gather():
     for y in range(0,100):
         try:
@@ -17,25 +18,40 @@ def gather():
             data.append(comp)
         except:
             print("Please try again!")
-data = [[0,0,0,0,0],[1,0,0,0,0],[1,1,1,1,0]]
+            """
+def strip(filename):
+    f = open(filename,"r")
+    data = []
+    bina = f.readline()
+    r = bina.split(" ")
+    for rt in r:
+        fd = rt.split("-")
+        data.append(list(map(int, fd)))
+    return data
+print(strip("paul.txt"))
+data = strip("paul.txt")
+#data = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[1,0,0,0,0]]
 
 def subcateg(subcat,value):
     li = 0
     su = 0
     for liked in data:
-        if liked[0] == 1:
+        if liked[0] == 1 and liked[subcat]== value:
             li+=1
         if liked[subcat] == value:
             su+=1
-    return round((li/su),4)
-stats.append(subcateg(1))
-stats.append(subcateg(2))
-stats.append(subcateg(3))
-stats.append(subcateg(4))
+    try:
+        return round((li/su),4)
+    except:
+        return 0
+stats.append(subcateg(1,0))
+stats.append(subcateg(2,1))
+stats.append(subcateg(3,1))
+stats.append(subcateg(4,1))
+print(stats)
 def gini(stat):
+    r = 0
     for vals in stats:
-        r = 0
         r+=(vals)*(vals)
-    return 1-r
+    return 1-r/(len(data[0])-1)
 print(gini(stats))
-
