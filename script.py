@@ -55,17 +55,18 @@ def gener(one,two,thr,fou):
     stats.append(subcateg(3,thr))
     stats.append(subcateg(4,fou))
     return stats
-stats = gener(0,1,0,1)
 
 def gini(stat):
     r = 0
-    for vals in stats:
+    for vals in stat:
         r+=(vals)*(vals)
     return 1-r/(len(data[0])-1)
 def iters():
     #Don't tell me to clean this up.
     als = list(itertools.product([0,1], repeat=4))  
     todo = []
+    todo2 = []
+    count = []
     for fun in als:
         #making als processable by gini function
         fun = ",".join(str(fun))
@@ -73,8 +74,10 @@ def iters():
         fun = fun.replace("(","")
         fun = fun.replace(")","")
         fun = fun.replace(" ","")
-        todo.append(gini(gener(fun[0],fun[1],fun[2],fun[3])))
-    return(max(todo))
+        todo.append(gini(gener(int(fun[0]),int(fun[1]),int(fun[2]),int(fun[3]))))
+        fuc = int(fun[0]),int(fun[1]),int(fun[2]),int(fun[3])
+        todo2.append(fuc)
+    r = todo.index(min(todo))
+    return(min(todo),todo2[r])
 print(iters())
-print(gini(gener(0,0,0,0)))
 
