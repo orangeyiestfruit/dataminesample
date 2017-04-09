@@ -30,8 +30,7 @@ def strip(filename):
     bina = f.readline()
     r = bina.split(" ")
     for rt in r:
-        fd = rt.split("-")
-        data.append(list(map(int, fd)))
+        data.append(list(map(int, rt)))
     return data
 data = strip("paul.txt")
 #data = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[1,0,0,0,0]]
@@ -78,6 +77,11 @@ def iters():
         fuc = int(fun[0]),int(fun[1]),int(fun[2]),int(fun[3])
         todo2.append(fuc)
     r = todo.index(min(todo))
-    return(min(todo),todo2[r])
-print(iters())
+    m = todo.index(max(todo))
+    return(min(todo),todo2[r],max(todo),todo2[m])
+iterlist =list(iters())
+print("Your most favourable demographic is,", iterlist[1], "with a certainty of,", iterlist[0],"that they will not like your product.")
+print("Your least favourable demograhic is,", iterlist[3], "with a certainty of,", iterlist[2],"that they will not like your product.")
+
+
 
