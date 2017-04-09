@@ -3,8 +3,12 @@ stats = []
 mlikes = 0
 import itertools
 from time import *
+import tkinter
 #0 = dislike the company, 0 = not a teen, 0 = not female, 0 = no snapchat, 0 = republican
-
+#TODO: Create a GUI using tkinter.    https://docs.python.org/3.5/library/tkinter.html
+#Make more adaptable to more input, except data that does not include all subcategories.
+#Create a client and server side - the client sends data using gather function, client recieves it and appends it to 'database' file.
+#Keep in mind - we need a booth with a presentation.
 
 """
 def gather():
