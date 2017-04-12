@@ -1,33 +1,48 @@
+#Code does NOT currently work! See: TODO
 data = []
 stats = []
 mlikes = 0
 import itertools
 from time import *
-import tkinter
+from tkinter import *
 #0 = dislike the company, 0 = not a teen, 0 = not female, 0 = no snapchat, 0 = republican
 #TODO: Create a GUI using tkinter.    https://docs.python.org/3.5/library/tkinter.html
+#TODO: Make it so the script Tkinter class can call functions from functions class. 
 #Make more adaptable to more input, except data that does not include all subcategories.
 #Create a client and server side - the client sends data using gather function, client recieves it and appends it to 'database' file.
 #Keep in mind - we need a booth with a presentation.
 class Script(Frame):
-    """
+    def createWidgets(self):
+        self.QUIT = Button(self);
+        self.QUIT["command"] = functions.strip("paul.txt")
+        self.QUIT.pack({"side":"left"})
+    def __init__(self, master = None):
+        Frame.__init__(self, master)
+        self.pack()
+        self.createWidgets()
+root = Tk()
+app = Script(master=root)
+app.mainloop()
+root.destroy()
+"""
 def gather():
-    for y in range(0,100):
-        try:
-            gend = int(input("Male = 0, Female = 1\n"))
-            teen = int(input("Teenager(13-19) = 1, not a teenager = 0\n"))
-            snap = int(input("Snapchat = 1, no Snapchat = 0\n"))
-            part = int(input("Republican = 0, Democrat/Libertarian = 1\n"))
-            opin = int(input("Do you like Ford automanufacturers? Y = 1, N = 0"))
-            comp = [opin,teen,gend,snap,part]
-            print("Thank you for your input!")
-            sleep(2);                 #just gathering manual input 
-            data.append(comp)
-        except:
-            print("Please try again!")
-            """
-
-
+for y in range(0,100):
+    try:
+        gend = int(input("Male = 0, Female = 1\n"))
+        teen = int(input("Teenager(13-19) = 1, not a teenager = 0\n"))
+        snap = int(input("Snapchat = 1, no Snapchat = 0\n"))
+        part = int(input("Republican = 0, Democrat/Libertarian = 1\n"))
+        opin = int(input("Do you like Ford automanufacturers? Y = 1, N = 0"))
+        comp = [opin,teen,gend,snap,part]
+        print("Thank you for your input!")
+        sleep(2);                 #just gathering manual input 
+        data.append(comp)
+    except:
+        print("Please try again!")
+        """
+class functions():
+    def __init__():
+        
     def strip(filename):
         f = open(filename,"r")
         data = []
@@ -37,7 +52,7 @@ def gather():
             data.append(list(map(int, rt)))
         return data
     data = strip("paul.txt")
-#data = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[1,0,0,0,0]]
+    #data = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[1,0,0,0,0]]
 
     def subcateg(subcat,value):
         li = 0
@@ -86,6 +101,4 @@ def gather():
     iterlist =list(iters())
     print("Your most favourable demographic is,", iterlist[1], "with a certainty of,", iterlist[0],"that they will not like your product.")
     print("Your least favourable demograhic is,", iterlist[3], "with a certainty of,", iterlist[2],"that they will not like your product.")
-
-
 
