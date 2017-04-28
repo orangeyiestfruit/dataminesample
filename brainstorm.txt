@@ -1,0 +1,2 @@
+Use OpenPyXL instead of Python's native TKinter
+Play sound after every GUI input.
