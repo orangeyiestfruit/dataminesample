@@ -12,14 +12,29 @@ from tkinter import *
 #Create a client and server side - the client sends data using gather function, client recieves it and appends it to 'database' file.
 #Keep in mind - we need a booth with a presentation.
 class Script(Frame):
-    def createWidgets(self):
-        self.QUIT = Button(self);
-        self.QUIT["command"] = functions.strip("paul.txt")
-        self.QUIT.pack({"side":"left"})
     def __init__(self, master = None):
         Frame.__init__(self, master)
         self.pack()
         self.createWidgets()
+        self.gather()
+    def createWidgets(self):
+        self.QUIT = Button(self);
+        self.QUIT["command"] = functions.strip("paul.txt")
+        self.QUIT.pack({"side":"left"})
+    def gather():
+        for y in range(0,100):
+        try:
+            gend = int(input("Male = 0, Female = 1\n"))
+            teen = int(input("Teenager(13-19) = 1, not a teenager = 0\n"))
+            snap = int(input("Snapchat = 1, no Snapchat = 0\n"))
+            part = int(input("Republican = 0, Democrat/Libertarian = 1\n"))
+            opin = int(input("Do you like Ford automanufacturers? Y = 1, N = 0"))
+            comp = [opin,teen,gend,snap,part]
+            print("Thank you for your input!")
+            sleep(2);                 #just gathering manual input 
+            data.append(comp)
+        except:
+            print("Please try again!")
 root = Tk()
 app = Script(master=root)
 app.mainloop()
