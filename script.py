@@ -7,7 +7,6 @@ stats = []
 mlikes = 0
 import itertools
 from time import *
-#0 = dislike the company, 0 = not a teen, 0 = not female, 0 = no snapchat, 0 = republican
 #TODO: 
 #Make more adaptable to more input, except data that does not include all subcategories.
 #Create a client and server side - the client sends data using gather function, client recieves it and appends it to 'database' file.
@@ -36,15 +35,19 @@ def excelgather():
         while True:
             iter+=1
             nameA = "A"+str(iter)
+            nameB = "B"+str(iter)
+            nameC = "C"+str(iter)
+            nameD = "D"+str(iter)
+            nameE = "E"+str(iter)
             try:
-     
                 data.append([wb["preference"][nameA]])
+                data.append([wb["teenager"][nameB]])
+                data.append([wb["gend"][nameC]])
+                data.append([wb["snapchat"][nameD]])
+                data.append([wb["partisan"][nameE]])
             except:
-                break
-       
-                data.append
-    
-#dedent region class functions():
+                break   
+#class functions():
         
     def strip(filename):
         f = open(filename,"r")
