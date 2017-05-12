@@ -1,4 +1,4 @@
-#Code works: Yes
+#Code works: No
 import openpyxl
 #Third party module. Accessible using "pip install openpyxl" under your python/Scripts file in cmd. Reads data from Excel files, a very user friendly way of gathering data - more friendly
 #than I could ever write with the stupid tkinter module. TODO: Make a compatible excel file with data that it can read, and put it in machine-readable format.
@@ -8,8 +8,7 @@ mlikes = 0
 import itertools
 from time import *
 #0 = dislike the company, 0 = not a teen, 0 = not female, 0 = no snapchat, 0 = republican
-#TODO: Create a GUI using tkinter.    https://docs.python.org/3.5/library/tkinter.html
-#TODO: Make it so the script Tkinter class can call functions from functions class. 
+#TODO: 
 #Make more adaptable to more input, except data that does not include all subcategories.
 #Create a client and server side - the client sends data using gather function, client recieves it and appends it to 'database' file.
 #Keep in mind - we need a booth with a presentation.
@@ -29,7 +28,23 @@ for y in range(0,100):
     except:
         print("Please try again!")
         """
-class functions():
+def excelgather():
+    wb = Workbook()
+    wb = wb.active
+    iter = -1
+    openpyxl.load_workbook("data.xlsx")
+        while True:
+            iter+=1
+            nameA = "A"+str(iter)
+            try:
+     
+                data.append([wb["preference"][nameA]])
+            except:
+                break
+       
+                data.append
+    
+#dedent region class functions():
         
     def strip(filename):
         f = open(filename,"r")
