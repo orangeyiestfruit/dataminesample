@@ -72,12 +72,13 @@ def excelgather():
             return round((li/su),4)
         except:
             print("Insufficient Data.")
-    def gener(one,two,thr,fou):
+    def gener(*arg):
         stats = []
-        stats.append(subcateg(1,one))
-        stats.append(subcateg(2,two))
-        stats.append(subcateg(3,thr))
-        stats.append(subcateg(4,fou))
+        for argsd in range(1,len(arg)):
+            stats.append(subcateg(1,arg[0]))
+            stats.append(subcateg(2,arg[1]))
+            stats.append(subcateg(3,arg[2]))
+            stats.append(subcateg(4,arg[3]))
         return stats
 
     def gini(stat):
