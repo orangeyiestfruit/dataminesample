@@ -1,16 +1,13 @@
 #Code works: It should, untested
 import openpyxl
 #Third party module. Accessible using "pip install openpyxl" under your python/Scripts file in cmd. Reads data from Excel files, a very user friendly way of gathering data - more friendly
-#than I could ever write with the stupid tkinter module. TODO: Make a compatible excel file with data that it can read, and put it in machine-readable format.
+#than I could ever write with the stupid tkinter module.
 data = []
 stats = []
 mlikes = 0
 import itertools
 from time import *
-#TODO: 
-#Make more adaptable to more input, except data that does not include all subcategories.
-#Create a client and server side - the client sends data using gather function, client recieves it and appends it to 'database' file.
-#Keep in mind - we need a booth with a presentation.
+#Todo: Make output more user friendly. Nobody wants to read [0,1,0,1,1]. Very hard to understand in this format.
 """
 def gather():
 for y in range(0,100):
