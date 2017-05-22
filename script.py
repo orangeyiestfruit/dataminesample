@@ -1,4 +1,4 @@
-#Code works: No
+#Code works: It should, untested
 import openpyxl
 #Third party module. Accessible using "pip install openpyxl" under your python/Scripts file in cmd. Reads data from Excel files, a very user friendly way of gathering data - more friendly
 #than I could ever write with the stupid tkinter module. TODO: Make a compatible excel file with data that it can read, and put it in machine-readable format.
@@ -48,7 +48,7 @@ def excelgather():
             except:
                 break   
 #class functions():
-        
+    """    
     def strip(filename):
         f = open(filename,"r")
         data = []
@@ -59,7 +59,7 @@ def excelgather():
         return data
     data = strip("paul.txt")
     #data = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[1,0,0,0,0]]
-
+    """
     def subcateg(subcat,value):
         li = 0
         su = 0
@@ -75,10 +75,7 @@ def excelgather():
     def gener(*arg):
         stats = []
         for argsd in range(1,len(arg)):
-            stats.append(subcateg(1,arg[0]))
-            stats.append(subcateg(2,arg[1]))
-            stats.append(subcateg(3,arg[2]))
-            stats.append(subcateg(4,arg[3]))
+            stats.append(subcateg(argsd,arg[argsd-1]))
         return stats
 
     def gini(stat):
